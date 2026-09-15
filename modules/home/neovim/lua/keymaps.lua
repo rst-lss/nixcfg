@@ -6,7 +6,7 @@ local map = function(mode, lhs, rhs, desc, noremap, silent)
 	vim.keymap.set(mode, lhs, rhs, { desc = desc, noremap = noremap, silent = silent })
 end
 
-map("n", "<leader>pv", vim.cmd.Ex)
+map("n", "<leader>q", vim.cmd.Ex)
 
 -- Copy to clipboard
 map("v", "<leader>y", '"+y')
@@ -24,7 +24,7 @@ map("v", "<leader>P", '"+P')
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-map("n", "<leader>q", vim.diagnostic.setloclist, "Open diagnostic [Q]uickfix list")
+map("n", "<leader>di", vim.diagnostic.setloclist, "Open diagnostic [Q]uickfix list")
 
 -- TIP: Disable arrow keys in normal mode
 map("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
