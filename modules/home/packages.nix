@@ -30,5 +30,6 @@
     playerctl
     zip
     unzip
+    opencode
   ];
 }
