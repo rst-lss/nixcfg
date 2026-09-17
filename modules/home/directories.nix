@@ -1,30 +1,30 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   # XDG-ify gtk2 config + cursor icons where supported (see #6268)
   home.preferXdgDirectories = true;
 
-  xdg = {
-    enable = true;
-    userDirs = {
-      enable = true;
-      createDirectories = false;
-      setSessionVariables = true;
+  xdg.enable = true;
 
-      documents = "${config.home.homeDirectory}/doc/tmp";
-      download = "${config.home.homeDirectory}/tmp";
-      music = "${config.home.homeDirectory}/aud/tmp";
-      pictures = "${config.home.homeDirectory}/pix/tmp";
-      videos = "${config.home.homeDirectory}/pix/tmp";
-      desktop = "${config.home.homeDirectory}/tmp";
-      templates = "${config.home.homeDirectory}/tmp";
-      publicShare = "${config.home.homeDirectory}/tmp";
-    };
+  xdg.userDirs = lib.mkIf pkgs.stdenv.isLinux {
+    enable = true;
+    createDirectories = false;
+    setSessionVariables = true;
+
+    documents = "${config.home.homeDirectory}/doc/tmp";
+    download = "${config.home.homeDirectory}/tmp";
+    music = "${config.home.homeDirectory}/aud/tmp";
+    pictures = "${config.home.homeDirectory}/pix/tmp";
+    videos = "${config.home.homeDirectory}/pix/tmp";
+    desktop = "${config.home.homeDirectory}/tmp";
+    templates = "${config.home.homeDirectory}/tmp";
+    publicShare = "${config.home.homeDirectory}/tmp";
   };
 
-  xresources.path = "${config.xdg.configHome}/X11/xresources";
+  xresources.path = lib.mkIf pkgs.stdenv.isLinux "${config.xdg.configHome}/X11/xresources";
 
   home.activation.createHomeTree = lib.hm.dag.entryAfter ["writeBoundary"] ''
     run mkdir -p \
@@ -45,7 +45,7 @@
   '';
 
   # TODO: try to remove the .icons
-  home.activation.checkHomeTree = lib.hm.dag.entryAfter ["createHomeTree"] ''
+  home.activation.checkHomeTree = lib.mkIf pkgs.stdenv.isLinux (lib.hm.dag.entryAfter ["createHomeTree"] ''
     allowed=(
       doc pix aud git tmp
       .cache .config .local
@@ -73,5 +73,5 @@
            "allowlist in modules/home/directories.nix if intentional."
       exit 1
     fi
-  '';
+  '');
 }
