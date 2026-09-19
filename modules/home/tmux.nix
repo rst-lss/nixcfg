@@ -14,6 +14,8 @@
         plugin = tmux-fzf;
         extraConfig = ''
           set-environment -g TMUX_FZF_LAUNCH_KEY "T"
+          set-environment -g TMUX_FZF_WINDOW_FILTER "1"
+          set-environment -g TMUX_FZF_WINDOW_FORMAT "#{window_name}"
         '';
       }
       {
@@ -43,6 +45,7 @@
       set -ga terminal-overrides ",*256col*:Tc"
       set -g renumber-windows on
       set -g set-clipboard on
+      set -g allow-rename off
 
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
@@ -55,6 +58,13 @@
       bind-key x kill-pane
 
       bind-key X run-shell "sesh last && tmux kill-session -t #{session_name}"
+
+      bind-key j select-window -t :editor
+      bind-key k select-window -t :agent
+      bind-key l select-window -t :git
+      bind-key o select-window -t :scratch
+
+      bind-key w run-shell -b "${pkgs.tmuxPlugins.tmux-fzf}/share/tmux-plugins/tmux-fzf/scripts/window.sh switch"
     '';
   };
 
@@ -62,5 +72,48 @@
     enable = true;
     tmuxKey = "f";
     icons = true;
+
+    settings = {
+      session = [
+        {
+          name = "sf";
+          path = "~/git/rst-lss/sf";
+          startup_command = "tmux rename-window editor && nvim .";
+          windows = ["agent" "git" "checks" "repl" "notebook" "scratch"];
+        }
+        {
+          name = "nixcfg";
+          path = "~/git/rst-lss/nixcfg";
+          startup_command = "tmux rename-window editor && nvim .";
+          windows = ["agent" "git" "scratch"];
+        }
+      ];
+
+      window = [
+        {
+          name = "agent";
+          startup_script = "opencode";
+        }
+        {
+          name = "git";
+          startup_script = "tmux split-window -t git -d -h -l 35% && lazygit";
+        }
+        {
+          name = "checks";
+          startup_script = "watchexec -c -e py -- 'ruff check . && basedpyright && pytest -q'";
+        }
+        {
+          name = "repl";
+          startup_script = "ipython";
+        }
+        {
+          name = "notebook";
+          startup_script = "jupyter lab";
+        }
+        {
+          name = "scratch";
+        }
+      ];
+    };
   };
 }
