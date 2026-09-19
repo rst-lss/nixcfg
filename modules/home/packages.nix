@@ -14,6 +14,9 @@
       zip
       unzip
       opencode
+      watchexec
+      lazygit
+      worktrunk
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       foot
