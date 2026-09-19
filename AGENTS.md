@@ -16,7 +16,8 @@
 ├── modules/
 │ ├── nixos/                # Reusable system toggles
 │ │ ├── hyprland.nix         # Hyprland system configuration
-│ │ └── snapshots.nix        # System snapshots configuration
+│ │ ├── snapshots.nix        # System snapshots configuration
+│ │ └── docker.nix           # Docker virtualization configuration
 │ └── home/                 # Reusable home-manager pieces
 │ ├── appearance.nix         # Desktop appearance settings
 │ ├── direnv.nix            # direnv setup
@@ -60,6 +61,13 @@
 ### flake.nix
 
 Main flake file that defines the NixOS and macOS configurations with inputs for nixpkgs, disko, home-manager, and nix-darwin.
+
+### modules/nixos/docker.nix
+
+Docker virtualization module that enables:
+
+- Docker daemon with companion features
+- docker-compose package for systemPackages
 
 ### hosts/default.nix (per system)
 
