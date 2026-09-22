@@ -7,7 +7,7 @@
     ./hardware.nix
     ./disko.nix
 
-    ../../modules/nixos/hyprland.nix
+    ../../modules/nixos/desktop.nix
     ../../modules/nixos/snapshots.nix
     ../../modules/nixos/virtualization.nix
     ../../home/rstlss
