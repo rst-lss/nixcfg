@@ -16,7 +16,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
 
     configType = "hyprlang";
 
@@ -59,7 +59,6 @@ in {
 
       exec-once = [
         "waybar"
-        "mako"
         "nm-applet --indicator"
         "blueman-applet"
         "firefox"
