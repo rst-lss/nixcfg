@@ -28,6 +28,7 @@
           ../../modules/home/hyprland.nix
           ../../modules/home/xsession.nix
           ../../modules/home/v2rayn.nix
+          ../../modules/home/udiskie.nix
         ];
 
       home = {
