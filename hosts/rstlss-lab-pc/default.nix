@@ -10,6 +10,7 @@
     ../../modules/nixos/desktop.nix
     ../../modules/nixos/snapshots.nix
     ../../modules/nixos/virtualization.nix
+    ../../modules/nixos/automount.nix
     ../../home/rstlss
   ];
 
