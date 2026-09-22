@@ -44,6 +44,14 @@ in {
         kb_layout = "us,ir";
         kb_options = "grp:ctrl_space_toggle,caps:swapescape";
         follow_mouse = 1;
+
+        # Hyprland's defaults (repeat_delay=600, repeat_rate=25) are what
+        # cause the "laggy" feel on held-down keys (j/k in qutebrowser,
+        # hjkl/Ctrl-d etc. in Neovim, and everywhere else) since this is
+        # the compositor's XKB repeat setting, not an app-level one.
+        # Lower delay = repeat kicks in sooner, higher rate = faster once it does.
+        repeat_delay = 200;
+        repeat_rate = 50;
       };
 
       misc = {
