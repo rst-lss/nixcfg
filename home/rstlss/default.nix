@@ -30,6 +30,7 @@
           ../../modules/home/xsession.nix
           ../../modules/home/v2rayn.nix
           ../../modules/home/udiskie.nix
+          ../../modules/home/zotero.nix
         ];
 
       home = {
