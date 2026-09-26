@@ -44,13 +44,14 @@
       "${config.xdg.dataHome}/zsh"
   '';
 
-  # TODO: try to remove the .icons
+  # TODO: try to remove the .icons and .mozilla
   home.activation.checkHomeTree = lib.mkIf pkgs.stdenv.isLinux (lib.hm.dag.entryAfter ["createHomeTree"] ''
     allowed=(
       doc pix aud git tmp
       .cache .config .local
       .nix-profile
       .ssh .icons
+      .mozilla
       .zshenv
     )
 
