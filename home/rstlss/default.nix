@@ -21,6 +21,7 @@
           ../../modules/home/direnv.nix
           ../../modules/home/tmux.nix
           ../../modules/home/directories.nix
+          ../../modules/home/unison.nix
         ]
         ++ lib.optionals pkgs.stdenv.isLinux [
           ../../modules/home/appearance.nix
