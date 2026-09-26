@@ -29,7 +29,6 @@
       mpv
       obsidian
       calibre
-      zotero
       sioyek
       nnn
       wl-clipboard
