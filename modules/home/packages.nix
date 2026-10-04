@@ -35,5 +35,7 @@
       pavucontrol
       brightnessctl
       playerctl
+      vlc
+      codex
     ];
 }
