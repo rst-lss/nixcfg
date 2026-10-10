@@ -7,19 +7,20 @@
 ├── flake.nix
 ├── opencode.json
 ├── hosts/
-│ ├── rstlss-lab-pc/          # NixOS system (x86_64-linux)
-│ │ ├── default.nix          # Hostname, users, timezone, system modules
-│ │ ├── hardware.nix         # Hardware configuration
-│ │ └── disko.nix            # Disk setup with disko
-│ └── rstlss-macbook/        # macOS system (aarch64-darwin)
-│ └── default.nix          # Hostname, users, system configuration
+│ ├── rstlss-lab-pc/        # NixOS system (x86_64-linux)
+│ │ ├── default.nix         # Hostname, users, timezone, system modules
+│ │ ├── hardware.nix        # Hardware configuration
+│ │ └── disko.nix           # Disk setup with disko
+│ └── rstlss-macbook/       # macOS system (aarch64-darwin)
+│ └── default.nix           # Hostname, users, system configuration
 ├── modules/
 │ ├── nixos/                # Reusable system toggles
-│ │ ├── hyprland.nix         # Hyprland system configuration
-│ │ ├── snapshots.nix        # System snapshots configuration
-│ │ └── docker.nix           # Docker virtualization configuration
+│ │ ├── desktop.nix         # Hyprland system configuration
+│ │ ├── snapshots.nix       # System snapshots configuration
+│ │ ├── gaming.nix          # Gaming system configuration
+│ │ └── virtualization.nix  # Docker virtualization configuration
 │ └── home/                 # Reusable home-manager pieces
-│ ├── appearance.nix         # Desktop appearance settings
+│ ├── appearance.nix        # Desktop appearance settings
 │ ├── direnv.nix            # direnv setup
 │ ├── directories.nix       # Directory structure
 │ ├── fzf.nix               # fzf configuration
@@ -27,33 +28,33 @@
 │ ├── foot.nix              # Foot terminal emulator
 │ ├── git.nix               # Git configuration
 │ ├── hyprland.nix          # Hyprland window manager
-│ ├── neovim/              # Neovim configuration
+│ ├── neovim/               # Neovim configuration
 │ │ ├── default.nix         # Neovim setup with plugins
-│ │ └── lua/               # Neovim Lua configuration
-│ │ ├── autocmds.lua       # Auto-commands
-│ │ ├── colorscheme.lua    # Colorscheme
-│ │ ├── cmp.lua            # Completion
-│ │ ├── conform.lua        # Code formatting
-│ │ ├── gitsigns.lua       # Git signs
-│ │ ├── keymaps.lua        # Key mappings
-│ │ ├── lint.lua           # Linting
-│ │ ├── lazydev.lua        # Lazydev
-│ │ ├── lsp.lua            # Language Server Protocol
-│ │ ├── mini.lua           # Mini UI library
-│ │ ├── navic.lua          # LSP breadcrumbs
-│ │ └── options.lua        # Neovim options
-│ │ └── telescope.lua      # Telescope fuzzy finder
+│ │ └── lua/                # Neovim Lua configuration
+│ │ ├── autocmds.lua        # Auto-commands
+│ │ ├── colorscheme.lua     # Colorscheme
+│ │ ├── cmp.lua             # Completion
+│ │ ├── conform.lua         # Code formatting
+│ │ ├── gitsigns.lua        # Git signs
+│ │ ├── keymaps.lua         # Key mappings
+│ │ ├── lint.lua            # Linting
+│ │ ├── lazydev.lua         # Lazydev
+│ │ ├── lsp.lua             # Language Server Protocol
+│ │ ├── mini.lua            # Mini UI library
+│ │ ├── navic.lua           # LSP breadcrumbs
+│ │ └── options.lua         # Neovim options
+│ │ └── telescope.lua       # Telescope fuzzy finder
 │ ├── packages.nix          # User packages
-│ ├── ssh.nix              # SSH client configuration
+│ ├── ssh.nix               # SSH client configuration
 │ ├── starship.nix          # Starship prompt
-│ ├── tmux.nix             # Tmux configuration
+│ ├── tmux.nix              # Tmux configuration
 │ ├── v2rayn.nix            # V2RayN client
-│ ├── xsession.nix         # X session configuration
-│ └── zsh.nix              # Zsh shell configuration
+│ ├── xsession.nix          # X session configuration
+│ └── zsh.nix               # Zsh shell configuration
 ├── home/
-│ └── rstlss/             # Home-manager configuration for rstlss user
-│ └── default.nix         # Imports all home modules
-└── .git/                 # Git metadata
+│ └── rstlss/               # Home-manager configuration for rstlss user
+│ └── default.nix           # Imports all home modules
+└── .git/                   # Git metadata
 ```
 
 ## Key Configuration Files

@@ -11,6 +11,7 @@
     ../../modules/nixos/snapshots.nix
     ../../modules/nixos/virtualization.nix
     ../../modules/nixos/automount.nix
+    ../../modules/nixos/gaming.nix
     ../../home/rstlss
   ];
 

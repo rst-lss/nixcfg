@@ -44,6 +44,7 @@
                     mountOptions = ["compress=zstd" "noatime"];
                   };
                   "/home/.snapshots" = {};
+                  "/home/tmp/games" = {};
 
                   "/nix" = {
                     mountpoint = "/nix";

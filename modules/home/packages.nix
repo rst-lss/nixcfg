@@ -37,5 +37,7 @@
       playerctl
       vlc
       codex
+      vscode
+      unrar
     ];
 }
